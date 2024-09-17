@@ -1,0 +1,14 @@
+@EndUserText.label: 'Service Definition for Travel Processor'
+define service ZLAM_SR_SD_TRAVEL_APPROVER {
+  expose ZLAM_SR_TRAVEL_APPROVER    as Travel;
+  expose ZLAM_SR_BOOKING_APPROVER   as Booking;
+  expose ZLAM_SR_BOOKSUPPL_APPROVER as BookingSupplement;
+  expose /DMO/I_Agency              as Agency;
+  expose /DMO/I_Customer            as Customer;
+  expose I_Currency                 as Currency;
+  expose /DMO/I_Overall_Status_VH   as StatusVH;
+  expose /DMO/I_Carrier             as Airline;
+  expose /DMO/I_Connection          as Connections;
+  expose /DMO/I_Booking_Status_VH   as BookingVH;
+  expose /DMO/I_Supplement          as Supplement;
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Sales'
+define service ZC_LAM_SR_SALES_ANA_SD {
+  expose ZI_LAM_SR_SALES_ANA as Sales;
+  expose ZI_LAM_SR_BPA       as BusinessPartner;
+}

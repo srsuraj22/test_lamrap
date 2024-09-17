@@ -1,0 +1,5 @@
+CLASS zbp_lam_sr_booking DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zlam_sr_travel.
+ENDCLASS.
+
+CLASS zbp_lam_sr_booking IMPLEMENTATION.
+ENDCLASS.

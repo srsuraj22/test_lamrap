@@ -1,0 +1,125 @@
+@Metadata.layer: #CUSTOMER
+ 
+@UI.headerInfo:{
+    typeName: 'Travel',
+    typeNamePlural: 'Travel Requests',
+    title: { value: 'TravelId' },
+    description: { value: 'Description' }
+}
+annotate entity ZLAM_SR_TRAVEL_PROCESSOR
+    with
+{   
+    @UI.facet: [{
+        type: #COLLECTION,
+        purpose: #STANDARD,
+        label: 'General Information',
+        id: 'idMain',
+        position: 10    
+     },{
+        purpose: #STANDARD,
+        type: #IDENTIFICATION_REFERENCE,
+        id: 'MoreInfo',
+        label: 'More Info',
+        parentId: 'idMain',
+        position: 10
+     },{
+        purpose: #STANDARD,
+        type: #FIELDGROUP_REFERENCE,
+        id: 'idFG1',
+        label: 'Dates',
+        parentId: 'idMain',
+        position: 20,
+        targetQualifier: 'idFG1'
+     },{
+        purpose: #STANDARD,
+        type: #FIELDGROUP_REFERENCE,
+        id: 'idFG2',
+        label: 'Pricing',
+        parentId: 'idMain',
+        position: 30,
+        targetQualifier: 'idFG2'
+     },{
+        purpose: #HEADER,
+        type: #DATAPOINT_REFERENCE,
+        label: 'Status',
+        id: 'idStatus',
+        targetQualifier: 'Status'     
+     },{
+        purpose: #HEADER,
+        type: #DATAPOINT_REFERENCE,
+        label: 'Agency',
+        id: 'idAgency',
+        targetQualifier: 'Agency'     
+     },{
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Bookings',
+        position:20,        
+        targetElement: '_Booking'
+     }]
+    @UI : { selectionField: [{position: 10 }] ,
+            lineItem: [{ position: 10 },
+            { type: #FOR_ACTION, dataAction: 'copyTravel', label: 'Copy Travel' }],
+            identification: [{position: 10 }] }
+    TravelId;
+    
+    @UI.selectionField: [{ position: 20  }]
+    @UI.lineItem: [{ position: 20 }]
+    @UI.identification: [{ position: 20 }]
+    @UI.dataPoint: { qualifier: 'Agency' }
+    AgencyId;
+    
+    @UI.selectionField: [{ position: 30  }]
+    @UI.lineItem: [{ position: 30 }]
+    @UI.identification: [{ position: 30 }]
+    CustomerId;
+    
+    @UI.fieldGroup: [{ position: 10, qualifier: 'idFG1' }]
+    BeginDate;
+    
+    @UI.lineItem: [{ position: 40 }]
+    @UI.fieldGroup: [{ position: 20, qualifier: 'idFG1' }]
+    EndDate;
+    
+    @UI.fieldGroup: [{ position: 10, qualifier: 'idFG2' }]
+    BookingFee;
+    
+    @UI.selectionField: [{ position: 40  }]
+    @UI.lineItem: [{ position: 50 }]
+    @UI.fieldGroup: [{ position: 20, qualifier: 'idFG2' }]
+    TotalPrice;
+    
+    @UI.selectionField: [{ position: 50  }]
+    @UI.fieldGroup: [{ position: 10, qualifier: 'idFG3' }]
+    CurrencyCode;
+    
+    @UI.identification: [{ position: 50 }]
+    Description;
+    
+    @UI.selectionField: [{ position: 60  }]
+    @UI.identification: [{ position: 40 }]
+    @UI.fieldGroup: [{ position: 30, qualifier: 'idFG1' }]    
+    @UI.dataPoint: { qualifier: 'Status', criticality: 'TravelIcon' }
+    OverallStatus;
+    
+    @UI.lineItem: [{ position: 60, criticality: 'TravelIcon' }]     
+    TravelStatus;
+//    Ctrl+7
+//    CreatedBy;
+//    CreatedAt;
+//    LastChangedBy;
+//    LastChangedAt;
+    @UI.lineItem: [{ position: 80 , importance: #HIGH }]
+    @EndUserText.label: 'CO2Tax'
+    CO2Tax;
+    @UI.lineItem: [{ position: 90 , importance: #HIGH }]
+    @EndUserText.label: 'Day of Flight'
+    dayOfTheFlight;
+//    /* Associations */
+//    _Agency;
+//    _Booking;
+//    _Currency;
+//    _Customer;
+//    _OverallStatus;
+    
+}
