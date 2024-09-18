@@ -1,0 +1,8 @@
+@EndUserText.label: 'Booking Analytics'
+define service ZLAM_SR_SD_BOOKING_ANALYTICS {
+  expose ZLAM_SR_C_BOOKING_ANALYTICS as Bookings;
+  expose ZLAM_SR_TRAVEL_ANALYTICS    as Travel;
+  expose /DMO/I_Agency               as Agency;
+  expose /DMO/I_Customer             as Customer;
+  expose /DMO/I_Carrier              as Carrier;
+}
